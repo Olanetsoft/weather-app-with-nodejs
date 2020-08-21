@@ -33,13 +33,12 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+
 app.post('/find', (req, res) => {
-    console.log('url')
     const apiKey = process.env.API_KEY;
     const { location } = req.body;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
-    console.log('after url')
-    // execution
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+
     request(url, function (err, response, body) {
         if (err) {
             console.log('error:', error);
@@ -48,7 +47,6 @@ app.post('/find', (req, res) => {
             console.log('body:', w.main.temp - 273.15);
         }
     });
-    console.log('after request')
     res.redirect('/');
 });
 
