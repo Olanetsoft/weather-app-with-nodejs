@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const request = require('request');
 
 
 
@@ -27,6 +28,29 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
+
+app.use('/', (req, res) => {
+    res.render('index');
+});
+
+app.post('/find', (req, res) => {
+    console.log('url')
+    const apiKey = process.env.API_KEY;
+    const { location } = req.body;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
+    console.log('after url')
+    // execution
+    request(url, function (err, response, body) {
+        if (err) {
+            console.log('error:', error);
+        } else {
+            let w = JSON.parse(body)
+            console.log('body:', w.main.temp - 273.15);
+        }
+    });
+    console.log('after request')
+    res.render('index');
+});
 
 
 module.exports = app;
