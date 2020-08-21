@@ -69,10 +69,11 @@
                             <div class="day">Monday</div>
                             <div class="date">6 Oct</div>
                         </div> <!-- .forecast-header -->
+                        <% if(w.length > 0){ %>
                         <div class="forecast-content align-item-center">
                             <div class="location">New York</div>
                             <div class="degree">
-                                <div class="num">23<sup>o</sup>C</div>
+                                <div class="num"><%= w.main.temp %><sup>o</sup>C</div>
                                 <div class="forecast-icon">
                                     <img src="/images/icons/icon-1.svg" alt="" width=90>
                                 </div>
@@ -81,6 +82,11 @@
                             <span><img src="/images/icon-wind.png" alt="">18km/h</span>
                             <span><img src="/images/icon-compass.png" alt="">East</span>
                         </div>
+                        <%} else { %>
+                        <div class="forecast-content align-item-center">
+                            <h3>Weather Result will appear here after search </h3>
+                        </div>
+                        <% } %>
                     </div>
                     <!-- <div class="forecast">
 							<div class="forecast-header">
