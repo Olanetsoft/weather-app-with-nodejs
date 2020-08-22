@@ -2,9 +2,12 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const request = require('request');
+//Including session
+var session = require('express-session');
 
 
+//adding the route configuration 
+const routes = require('./routes/route');
 
 const app = express();
 
@@ -28,27 +31,23 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
+//This section below uses the declare route to navigate to the pages whenever a request is sent
+app.use(routes);
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.use(session({
+    secret: 'mylongsuperfuckingsecretpleasedontcopy',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(function (req, res, next) {
+    req.session.cookie.maxAge = 180 * 60 * 1000; // 3 hours
+    next();
 });
 
-
-app.post('/find', (req, res) => {
-    const apiKey = process.env.API_KEY;
-    const { location } = req.body;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&cnt=7&appid=${apiKey}`;
-
-    request(url, function (err, response, body) {
-        if (err) {
-            console.log('error:', error);
-        } else {
-            let w = JSON.parse(body)
-            // console.log('body:', w.main.temp - 273.15);
-            console.log('body:', w.main.temp);
-        }
-    });
-    res.redirect('/');
+app.use(function (req, res, next) {
+    res.locals.session = req.session.data;
+    next();
 });
 
 
