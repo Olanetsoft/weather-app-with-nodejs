@@ -8,9 +8,7 @@ exports.getHome = (req, res) => {
         if (err) {
             console.log('error:', error);
         } else {
-            let w = JSON.parse(body)
-            // console.log('body:', w.main.temp - 273.15);
-            console.log('body:', w);
+            var result = JSON.parse(body)
             var today = new Date();
 
             var date = today.getDate();
@@ -18,7 +16,7 @@ exports.getHome = (req, res) => {
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             var day = days[today.getDay()];
             res.render('index', {
-                w,
+                result,
                 date,
                 month,
                 day
@@ -37,17 +35,15 @@ exports.findLocation = (req, res) => {
         if (err) {
             console.log('error:', error);
         } else {
-            let w = JSON.parse(body)
-            // console.log('body:', w.main.temp - 273.15);
-            console.log('body:', w.main.temp);
+            let result = JSON.parse(body)
+            console.log(result)
             var today = new Date();
-
             var date = today.getDate();
             var month = today.toLocaleString('default', { month: 'long' });
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             var day = days[today.getDay()];
             res.render('index', {
-                w,
+                result,
                 date,
                 month,
                 day
@@ -58,4 +54,4 @@ exports.findLocation = (req, res) => {
 
 exports.returnHome = (req, res) => {
     res.redirect('/');
-}
+};

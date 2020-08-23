@@ -70,16 +70,16 @@
                             <div class="date"><%= date %> - <%= month %></div>
                         </div> <!-- .forecast-header -->
                         <div class="forecast-content align-item-center">
-                            <div class="location"><%= w.name %></div>
+                            <div class="location"><%= result.name %> , <%= result.sys.country %></div>
                             <div class="degree">
-                                <div class="num"><%= w.main.temp %><sup>o</sup>C</div>
+                                <div class="num"><%= result.main.temp %><sup>o</sup>C</div>
                                 <div class="forecast-icon">
                                     <img src="/images/icons/icon-1.svg" alt="" width=90>
                                 </div>
                             </div>
-                            <span><img src="/images/icon-umberella.png" alt=""><%= w.main.humidity %>%</span>
-                            <span><img src="/images/icon-wind.png" alt=""><%= w.wind.speed * 1.60 %> km/h </span>
-                            <span><img src="/images/icon-compass.png" alt="">East</span>
+                            <span><img src="/images/icon-umberella.png" alt=""><%= result.main.humidity %>%</span>
+                            <span><img src="/images/icon-wind.png" alt=""><%= result.wind.speed * 1.60 %> km/h </span>
+                            <span><img src="/images/icon-compass.png" alt="">Longitude: <%= result.coord.lon %> - Latitude: <%= result.coord.lat %></span>
                         </div>
                     </div>
                     <!-- <div class="forecast">
