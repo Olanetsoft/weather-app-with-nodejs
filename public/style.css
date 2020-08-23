@@ -1578,7 +1578,7 @@ form input[type="reset"] {
  * Header Styles
  */
 .site-header {
-  padding: 50px 0;
+  padding: 45px 0;
 }
 .site-header .branding {
   float: left;
@@ -2251,7 +2251,7 @@ form input[type="reset"] {
  */
 .site-footer {
   background: #262936;
-  padding: 50px 0;
+  padding: 45px 0;
 }
 .site-footer .subscribe-form {
   position: relative;
