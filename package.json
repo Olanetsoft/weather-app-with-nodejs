@@ -19,11 +19,13 @@
   },
   "homepage": "https://github.com/Olanetsoft/weather-app-with-nodejs#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "morgan": "^1.10.0",
+    "node-localstorage": "^2.1.6",
     "nodemon": "^2.0.4",
     "request": "^2.88.2"
   }

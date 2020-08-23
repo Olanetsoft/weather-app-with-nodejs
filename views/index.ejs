@@ -56,7 +56,7 @@
         <div class="hero" data-bg-image="https://pbs.twimg.com/profile_images/1282903152174534656/40elmJtj_400x400.jpg">
             <div class="container">
                 <form method="POST" action="/find" class="find-location">
-                    <input type="text" placeholder="Find your location..." name="location">
+                    <input type="text" placeholder="Find your location..." name="location" required>
                     <input type="submit" value="Find">
                 </form>
             </div>
@@ -66,19 +66,19 @@
                 <div class="forecast-container">
                     <div class="today forecast">
                         <div class="forecast-header">
-                            <div class="day">Monday</div>
-                            <div class="date">6 Oct</div>
+                            <div class="day"><%= day %></div>
+                            <div class="date"><%= date %> - <%= month %></div>
                         </div> <!-- .forecast-header -->
                         <div class="forecast-content align-item-center">
-                            <div class="location">New York</div>
+                            <div class="location"><%= w.name %></div>
                             <div class="degree">
-                                <div class="num">23<sup>o</sup>C</div>
+                                <div class="num"><%= w.main.temp %><sup>o</sup>C</div>
                                 <div class="forecast-icon">
                                     <img src="/images/icons/icon-1.svg" alt="" width=90>
                                 </div>
                             </div>
-                            <span><img src="/images/icon-umberella.png" alt="">20%</span>
-                            <span><img src="/images/icon-wind.png" alt="">18km/h</span>
+                            <span><img src="/images/icon-umberella.png" alt=""><%= w.main.humidity %>%</span>
+                            <span><img src="/images/icon-wind.png" alt=""><%= w.wind.speed * 1.60 %> km/h </span>
                             <span><img src="/images/icon-compass.png" alt="">East</span>
                         </div>
                     </div>
@@ -304,6 +304,7 @@
     <script src="
         /js/plugins.js"></script>
     <script src="/js/app.js"></script>
+    
 
 </body>
 

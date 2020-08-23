@@ -7,4 +7,6 @@ router.get('/', controller.getHome);
 
 router.post('/find', controller.findLocation);
 
+router.get('/find', controller.returnHome);
+
 module.exports = router;
