@@ -1803,7 +1803,7 @@ form input[type="reset"] {
   }
 }
 .forecast-container .forecast .forecast-header {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(84, 143, 221, 0.1);
   padding: 10px;
   text-align: center;
   font-weight: 400;
