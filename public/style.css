@@ -1770,7 +1770,7 @@ form input[type="reset"] {
   float: right;
 }
 .forecast-container .forecast.today .forecast-content {
-  text-align: left;
+  text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
 }
