@@ -10,7 +10,6 @@ exports.getHome = (req, res) => {
         } else {
             var result = JSON.parse(body)
             var today = new Date();
-
             var date = today.getDate();
             var month = today.toLocaleString('default', { month: 'long' });
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -36,7 +35,7 @@ exports.findLocation = (req, res) => {
             console.log('error:', error);
         } else {
             let result = JSON.parse(body)
-            console.log(result)
+            // console.log(result)
             var today = new Date();
             var date = today.getDate();
             var month = today.toLocaleString('default', { month: 'long' });

@@ -11,7 +11,8 @@
     <!-- Loading third party fonts -->
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
     <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/png" href="https://freepngimg.com/download/weather/23529-2-weather-hd.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://freepngimg.com/download/weather/23529-2-weather-hd.png"
+        sizes="16x16">
 
     <!-- Loading main css file -->
     <link rel="stylesheet" href="/style.css">
@@ -43,10 +44,11 @@
                     <ul class="menu">
                         <li class="menu-item current-menu-item"><a href="/">🎉</a></li>
                         <!-- <li class="menu-item"><a href="#">News</a></li> -->
-                        <!-- <li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
+                <!-- <li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
 							<li class="menu-item"><a href="photos.html">Photos</a></li>
 							<li class="menu-item"><a href="contact.html">Contact</a></li> -->
-                    </ul> <!-- .menu --
+                </ul>
+                <!-- .menu --
                 </div> .main-navigation -->
 
                 <!-- <div class="mobile-navigation"></div> -->
@@ -71,6 +73,7 @@
                             <div class="date"><%= date %> - <%= month %></div>
                         </div> <!-- .forecast-header -->
                         <div class="forecast-content">
+                            <% if (result.cod != '404') { %>
                             <div class="location"><%= result.name %> , <%= result.sys.country %></div>
                             <div class="degree">
                                 <div class="num"><%= result.main.temp %><sup>o</sup>C</div>
@@ -83,6 +86,12 @@
                             <span><img src="/images/icon-compass.png" alt="">Longitude: <%= result.coord.lon %> -
                                 Latitude: <%= result.coord.lat %></span>
                         </div>
+                        <%} else { %>
+                        <div class="forecast-content">
+                            <p> Not Found. Please enter a valid location 🙄 </p>
+                        </div>
+
+                        <% } %>
                     </div>
                     <!-- <div class="forecast">
 							<div class="forecast-header">
